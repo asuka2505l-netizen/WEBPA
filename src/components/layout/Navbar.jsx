@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import CourtLogo from '../../assets/CourtLogo';
+import MarqueeModule from "react-fast-marquee";
 import {
   Compass,
   GitFork,
@@ -14,9 +15,11 @@ import {
   MapPin,
   ExternalLink,
   MessageCircle,
-  Bot,
-  Sparkles
+  Bot
 } from 'lucide-react';
+
+// TRIK ANTI-GAGAL: Memaksa React mengambil komponen asli dari dalam objek Vite
+const Marquee = MarqueeModule.default || MarqueeModule;
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,49 +28,66 @@ export default function Navbar() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="navbar-wrapper no-print">
-      {/* Top Notification / Information Bar */}
-      <div className="top-bar">
-        <div className="container top-bar-inner">
-          <div className="top-bar-left">
-            <span className="top-bar-item">
+    <header className="navbar-wrapper no-print" style={{ width: '100%', overflowX: 'hidden' }}>
+      
+      {/* Top Notification / Information Bar Berjalan */}
+      {/* Top Notification / Information Bar Berjalan */}
+      {/* Top Notification / Information Bar Berjalan */}
+      <div className="top-bar" style={{ width: '100%', display: 'block', padding: '0' }}>
+        <Marquee speed={50} gradient={false} pauseOnHover={true} style={{ width: '100%' }}>
+          
+          {/* Padding diletakkan di sini agar pita hijaunya tidak menyusut vertikal */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '3rem', marginRight: '3rem', padding: '0.5rem 0' }}>
+            
+            <span className="top-bar-item" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <MapPin size={13} />
               <span>Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung</span>
             </span>
-            <span className="top-bar-item">
+            
+            <span className="top-bar-item" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <Clock size={13} />
               <span>Loket PTSP: Senin - Jumat (08.00 - 15.30 WIB)</span>
             </span>
-          </div>
-          <div className="top-bar-right" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+
             <a
               href="https://wa.me/6281320499227"
               target="_blank"
               rel="noopener noreferrer"
               className="top-bar-item"
-              style={{ color: '#6EE7B7', fontWeight: 600, textDecoration: 'none' }}
+              style={{ color: '#6EE7B7', fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
             >
               <MessageCircle size={13} />
               <span>WA PTSP: 0813-2049-9227</span>
             </a>
+            
             <a
               href="https://sipp.pa-bandung.go.id/list_jadwal_sidang"
               target="_blank"
               rel="noopener noreferrer"
               className="top-bar-item"
-              style={{ color: '#FDE68A', fontWeight: 600, textDecoration: 'none' }}
+              style={{ color: '#FDE68A', fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
             >
               <span>Jadwal Sidang SIPP</span>
               <ExternalLink size={11} />
             </a>
+
           </div>
-        </div>
+        </Marquee>
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="container">
-        <nav className="navbar" aria-label="Navigasi Utama">
-          {/* Logo & Brand Identity */}
+      <div style={{ width: '100%', padding: '0 2rem' }}>
+        <nav 
+          className="navbar" 
+          aria-label="Navigasi Utama" 
+          style={{ 
+            width: '100%', 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center' 
+          }}
+        >
+          {/* Logo & Brand Identity (Otomatis terdorong ke Kiri) */}
           <Link to="/" className="nav-brand" onClick={closeMobile}>
             <CourtLogo size={44} />
             <div className="brand-text">
@@ -76,8 +96,8 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <ul className="nav-links">
+          {/* Desktop Navigation Links (Otomatis terdorong ke Kanan) */}
+          <ul className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', margin: 0 }}>
             <li>
               <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
                 Beranda
@@ -144,7 +164,6 @@ export default function Navbar() {
             </li>
           </ul>
 
-          {/* Mobile Hamburger Button */}
           <button
             type="button"
             className="mobile-menu-btn"

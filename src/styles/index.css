@@ -132,11 +132,9 @@ img {
 /* Layout Utilities */
 .container {
   width: 100%;
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  max-width: 1440px; /* Membatasi agar di monitor super besar tidak terlalu melar */
+  margin: 0 auto; /* Otomatis ke tengah */
+  padding: 0 2rem; /* Jarak aman kiri dan kanan untuk seluruh halaman */
 }
 
 .page-wrapper {

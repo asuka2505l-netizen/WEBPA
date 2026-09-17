@@ -1,6 +1,6 @@
 import React from 'react';
 import { AlertCircle, Scale } from 'lucide-react';
-
+import Marquee from "react-fast-marquee";
 export default function DisclaimerBanner({ type = "general", customText = null }) {
   if (type === "calculator") {
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CourtLogo from '../../assets/CourtLogo';
 import { ShieldCheck, MapPin, Phone, Mail, Clock, ExternalLink, MessageSquare } from 'lucide-react';
-
+import Marquee from "react-fast-marquee";
 export default function Footer() {
   return (
     <footer className="footer no-print">
