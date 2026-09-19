@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ChatWindow from '../components/chat/ChatWindow';
 import DisclaimerBanner from '../components/layout/DisclaimerBanner';
 import {
@@ -14,6 +14,9 @@ import {
 } from 'lucide-react';
 
 export default function AsistenAI() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="page-wrapper">
       {/* Page Header */}

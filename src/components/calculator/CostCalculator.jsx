@@ -55,8 +55,8 @@ export default function CostCalculator() {
         <button
           type="button"
           onClick={() => setUseSearchMode(!useSearchMode)}
-          className="btn btn-secondary btn-sm"
-          style={{ fontSize: '0.8rem', padding: '0.35rem 0.75rem' }}
+          className="btn btn-secondary"
+          style={{ fontSize: '0.95rem', padding: '0.75rem 1.25rem', fontWeight: 600, width: '100%' }}
         >
           {useSearchMode ? (
             <>

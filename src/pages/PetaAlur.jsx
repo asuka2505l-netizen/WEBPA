@@ -19,7 +19,7 @@ export default function PetaAlur() {
           </div>
           <h1 className="page-header-title">Peta Alur Perkara Pengadilan Agama</h1>
           <p className="page-header-desc">
-            Pahami rangkaian tahapan hukum resmi dari pendaftaran perkara, pemanggilan oleh jurusita, mediasi wajib, hingga pengambilan produk pengadilan (Akta Cerai atau Salinan Putusan).
+            Peta alur ini menampilkan diagram visual interaktif yang menggambarkan proses persidangan, termasuk tahapan mediasi, panggilan sidang, dan estimasi biaya.
           </p>
         </div>
       </div>
