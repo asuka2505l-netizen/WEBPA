@@ -17,7 +17,7 @@ export default function ChecklistDokumen() {
           </div>
           <h1 className="page-header-title">Checklist Persyaratan Dokumen Perkara</h1>
           <p className="page-header-desc">
-            Periksa dan centang kelengkapan berkas yang wajib Anda siapkan sebelum mendatangi loket Pelayanan Terpadu Satu Pintu (PTSP). Status centang tersimpan otomatis di perangkat Anda dan dapat dicetak langsung.
+            Gunakan checklist ini untuk memastikan seluruh dokumen persyaratan perkara telah lengkap sebelum diserahkan ke PTSP Pengadilan Agama Bandung.
           </p>
         </div>
       </div>

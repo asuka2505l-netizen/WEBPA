@@ -54,7 +54,7 @@ export default function PanduanPerkara() {
           </div>
           <h1 className="page-header-title">Panduan Alur Perkara Interaktif</h1>
           <p className="page-header-desc">
-            Jawab pertanyaan di bawah ini satu per satu. Sistem kami akan memandu langkah demi langkah untuk menentukan jalur hukum, berkas dokumen yang dibutuhkan, serta estimasi biaya perkara.
+            Sistem kami akan memandu langkah demi langkah untuk menentukan jalur hukum, berkas dokumen yang dibutuhkan, serta estimasi biaya perkara.
           </p>
         </div>
       </div>

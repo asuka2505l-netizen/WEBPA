@@ -84,7 +84,13 @@ export default function CostBreakdownTable({
         </div>
 
         {/* TOTAL */}
-        <div className="breakdown-row total-row">
+        <div className="breakdown-row total-row" style={{ 
+          backgroundColor: '#ECFDF5', 
+          border: '2px solid #059669', 
+          borderRadius: '12px', 
+          padding: '1.25rem', 
+          marginTop: '1rem' 
+        }}>
           <div>
             <span style={{ fontSize: '1rem', fontWeight: 800, color: '#0F172A', display: 'block' }}>
               TOTAL ESTIMASI PANJAR
@@ -104,7 +110,7 @@ export default function CostBreakdownTable({
           <span>Kompensasi Pengembalian Sisa Panjar:</span>
         </div>
         <p style={{ margin: 0 }}>
-          Jumlah di atas merupakan estimasi panjar sementara. Jika proses perkara selesai dengan frekuensi panggilan yang lebih sedikit, sisa panjar biaya yang belum terpakai <strong>wajib dikembalikan 100%</strong> kepada pihak penyetor melalui kasir PTSP Pengadilan Agama.
+          Jumlah di atas merupakan estimasi panjar sementara. Jika proses perkara selesai dengan frekuensi panggilan yang lebih sedikit, sisa panjar biaya yang belum terpakai <strong>WAJIB DIKEMBALIKAN 100%</strong> kepada pihak penyetor melalui kasir PTSP Pengadilan Agama.
         </p>
       </div>
     </div>
