@@ -1,7 +1,8 @@
 import React from 'react';
-
-export default function ProgressBar({ stepNumber = 1, totalSteps = 5, category = "Panduan Perkara" }) {
-  const percentage = Math.min(100, Math.round((stepNumber / totalSteps) * 100));
+export default function ProgressBar({ stepNumber = 1, totalSteps = 5, category = "Panduan Perkara", selectedAnswerId = null }) {
+  const answeredCurrent = selectedAnswerId != null;
+  const completedSteps = answeredCurrent ? stepNumber : Math.max(0, stepNumber - 1);
+  const percentage = Math.max(0, Math.min(100, Math.round((completedSteps / totalSteps) * 100))); 
 
   return (
     <div className="wizard-progress-card">
@@ -15,7 +16,7 @@ export default function ProgressBar({ stepNumber = 1, totalSteps = 5, category =
         <span className="step-percentage">{percentage}% Selesai</span>
       </div>
 
-      <div className="progress-bar-bg" role="progressbar" aria-valuenow={percentage} aria-valuemin={0} aria-valuemax={100}>
+      <div className="progress-bar-bg" role="progressbar" aria-valuenow={percentage} aria-valuemin={0} aria-valuemax={100} aria-label="Kemajuan panduan">
         <div className="progress-bar-fill" style={{ width: `${percentage}%` }}></div>
       </div>
     </div>

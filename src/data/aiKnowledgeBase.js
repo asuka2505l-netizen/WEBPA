@@ -13,7 +13,9 @@ export const INITIAL_BOT_MESSAGE = {
     "Apa beda Cerai Gugat dan Cerai Talak?",
     "Berapa lama proses sampai Akta Cerai keluar?",
     "Apakah ada layanan pengacara gratis?",
-    "Alamat & jam buka loket PTSP Antapani"
+    "Alamat & jam buka loket PTSP Antapani",
+    "Bagaimana prosedur cerai ghoib?",
+    "Lainnya..."
   ],
   timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 };
@@ -161,20 +163,23 @@ export function processUserQuery(input) {
   }
 
   // 10. Intent: Dispensasi Kawin / Nikah Dini
-  if (query.includes("dispensasi") || query.includes("nikah muda") || query.includes("bawah umur") || query.includes("kurang umur") || query.includes("19 tahun")) {
-    return {
-      text: `💍 **Permohonan Dispensasi Kawin (Usia Calon Pengantin < 19 Tahun):**\n\n` +
-        `Berdasarkan UU No. 16 Tahun 2019 dan PERMA No. 5 Tahun 2019:\n\n` +
-        `1. Permohonan diajukan oleh **KEDUA ORANG TUA KANDUNG** calon pengantin yang belum cukup umur.\n` +
-        `2. **Berkas Mutlak:**\n` +
-        `   - Surat Penolakan dari KUA (Model N5).\n` +
-        `   - KTP & Kartu Keluarga orang tua dan calon mempelai.\n` +
-        `   - Akta Kelahiran dan ijazah terakhir calon pengantin.\n` +
-        `   - Surat Keterangan Kesehatan / Rekomendasi Puskesmas atau Dokter.\n` +
-        `3. Dalam persidangan, calon mempelai pria dan wanita serta kedua pasang orang tua **wajib hadir** untuk didengar keterangannya oleh Hakim.`,
-      actionLink: { text: "Buka Checklist Dispensasi", url: "/checklist" }
-    };
-  }
+if (query.includes("dispensasi") || query.includes("nikah muda") || query.includes("bawah umur") || query.includes("kurang umur") || query.includes("19 tahun")) {
+  return {
+    text: `💍 **Permohonan Dispensasi Kawin (Usia Calon Pengantin < 19 Tahun):**\n\n` +
+
+      `Berdasarkan UU No. 16 Tahun 2019 dan PERMA No. 5 Tahun 2019:\n\n` +
+
+      `1. Permohonan diajukan oleh **KEDUA ORANG TUA KANDUNG** calon pengantin yang belum cukup umur.\n` +
+      `2. **Berkas Mutlak:**\n` +
+      `   - Surat Penolakan dari KUA (Model N8).\n` +
+      // <-- SEBELUMNYA: "Model N5" -->
+      `   - KTP & Kartu Keluarga orang tua dan calon mempelai.\n` +
+      `   - Akta Kelahiran dan ijazah terakhir calon pengantin.\n` +
+      `   - Surat Keterangan Kesehatan / Rekomendasi Puskesmas atau Dokter.\n` +
+      `3. Dalam persidangan, calon mempelai pria dan wanita serta kedua pasang orang tua **wajib hadir** untuk didengar keterangannya oleh Hakim.`,
+    actionLink: { text: "Buka Checklist Dispensasi", url: "/checklist" }
+  };
+}
 
   // 11. Intent: Waris / Penetapan Ahli Waris
   if (query.includes("waris") || query.includes("ahli waris") || query.includes("paw") || query.includes("harta peninggalan") || query.includes("silsilah")) {
@@ -203,16 +208,36 @@ export function processUserQuery(input) {
     };
   }
 
+  //14. Cerai Ghaib
+  if (query.includes("cerai ghaib")) {
+    return {
+      text: `📜 **Prosedur Cerai Ghaib:**\n\n` +
+        `Cerai ghaib adalah pernikahan yang dianggap batal karena tidak terbukti adanya hubungan suami-istri selama 3 tahun berturut-turut.\n\n` +
+        `1. **Persyaratan:**\n` +
+        `   - Surat keterangan dari kelurahan setempat bahwa pasangan tidak ditemukan.\n` +
+        `   - Bukti pengumuman cerai ghaib di media massa.\n` +
+        `   - Surat pernyataan dari orang tua atau wali pasangan yang hilang.\n` +
+        `   - KTP dan KK pasangan yang hilang.\n` +
+        `   - Akta nikah.\n` +
+        `   - Bukti biaya pengumuman cerai ghaib.`,
+
+      actionLink: { text: "Lihat Dokumen Cerai Ghaib", url: "/checklist" }
+    };
+  }
+
   // 13. Default Fallback
   return {
-    text: `Terima kasih atas pertanyaan Anda. Untuk pertanyaan khusus atau konsultasi perkara Anda di wilayah hukum Kota Bandung:\n\n` +
+    text: `Terima kasih atas pertanyaan Anda. Untuk pertanyaan khusus diluar dari sesi ini atau konsultasi perkara Anda di wilayah hukum Kota Bandung:\n\n` +
       `1. Silakan manfaatkan menu **Panduan Perkara Interaktif** untuk mendapatkan rekomendasi alur berkas langkah demi langkah.\n` +
       `2. Gunakan **Kalkulator Panjar** untuk menghitung estimasi biaya berdasarkan 151 kelurahan di Kota Bandung.\n` +
       `3. Atau hubungi langsung **Petugas Meja Informasi PTSP PA Bandung** melalui WhatsApp resmi di bawah ini.`,
     actionLink: {
       text: "Chat WhatsApp PTSP (0813-2049-9227)",
       url: "https://wa.me/6281320499227",
+      email: "info@pa-bandung.go.id",
       isExternal: true
     }
-  };
+  }
+  
+
 }

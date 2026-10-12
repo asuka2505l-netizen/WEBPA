@@ -1,4 +1,6 @@
+
 /* Design System Tokens for Portal Panduan Perkara Interaktif Pengadilan Agama */
+@import "tailwindcss";
 :root {
   /* Colors */
   --primary: #065f46;
@@ -422,4 +424,84 @@ img {
 
 .print-only {
   display: none;
+}
+
+/* Layout Banner Primary */
+.banner-primary {
+  /* Menggunakan variabel warna hijau dari index.css Anda */
+  background-color: var(--primary); 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Tampilan Desktop (Kiri - Kanan) */
+@media (min-width: 768px) {
+  .banner-primary {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+}
+
+/* Konten Teks */
+.banner-content {
+  flex: 1;
+  margin-bottom: 2.5rem;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .banner-content {
+    margin-bottom: 0;
+    padding-right: 3rem;
+  }
+}
+
+.banner-title {
+  color: #ffffff;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.banner-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* Wadah Gambar 16:9 */
+.banner-image-container {
+  width: 100%;
+  position: relative;
+  /* Trik Vanilla CSS untuk mengunci rasio 16:9 (9 dibagi 16 = 0.5625) */
+  padding-top: 56.25%; 
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .banner-image-container {
+    width: 45%; /* Menyesuaikan lebar gambar di layar besar */
+    /* Menghapus padding-top relatif dan menggunakan aspect-ratio modern jika didukung browser */
+    padding-top: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Gambar absolut di dalam wadah rasio */
+.banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mencegah gambar terdistorsi */
 }

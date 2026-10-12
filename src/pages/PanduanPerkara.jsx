@@ -22,7 +22,6 @@ export default function PanduanPerkara() {
 
   const navigate = useNavigate();
 
-  // If the node reached is a result node, navigate to /hasil-panduan
   useEffect(() => {
     if (currentNode && currentNode.isResult) {
       let targetCase = currentNode.targetPerkaraId;
@@ -45,49 +44,49 @@ export default function PanduanPerkara() {
 
   return (
     <div className="page-wrapper">
-      {/* Top Banner Header */}
-      <div className="page-header">
-        <div className="page-header-content">
-          <div className="page-header-badge">
-            <Compass size={14} />
-            <span>Sistem Wizard Interaktif</span>
+      <header className="page-header">
+        <div className="container">
+          <div className="page-header-content">
+            <div className="page-header-badge">
+              <Compass size={14} />
+              <span>Sistem Wizard Interaktif</span>
+            </div>
+            <h1 className="page-header-title">
+              Panduan Alur Perkara Interaktif
+            </h1>
+            <p className="page-header-desc">
+              Sistem kami akan memandu langkah demi langkah untuk menentukan jalur hukum, berkas dokumen yang dibutuhkan, serta estimasi biaya perkara.
+            </p>
           </div>
-          <h1 className="page-header-title">Panduan Alur Perkara Interaktif</h1>
-          <p className="page-header-desc">
-            Sistem kami akan memandu langkah demi langkah untuk menentukan jalur hukum, berkas dokumen yang dibutuhkan, serta estimasi biaya perkara.
-          </p>
         </div>
-      </div>
+      </header>
 
-      <div className="container">
+      <main className="container">
         <div className="wizard-container">
-          {/* Progress Indicator */}
           <ProgressBar
             stepNumber={currentNode?.stepNumber || 1}
             totalSteps={currentNode?.totalSteps || 5}
-            category={currentNode?.category || "Panduan Keputusan"}
+            category={currentNode?.category || 'Panduan Keputusan'}
+            selectedAnswerId={answers[currentStep]}
           />
 
-          {/* Interactive Question Card */}
           <QuestionCard
             node={currentNode}
             selectedAnswerId={answers[currentStep]}
             onSelectOption={handleSelect}
           />
 
-          {/* Footer Controls: Back & Restart */}
           <WizardControls
             canGoBack={canGoBack}
             onBack={goToPreviousStep}
             onRestart={restartWizard}
           />
 
-          {/* Help box */}
-          <div className="info-box" style={{ marginTop: '2rem' }}>
-            <Sparkles size={20} style={{ color: '#0284C7', flexShrink: 0, marginTop: '2px' }} />
+          <div className="info-box">
+            <Sparkles size={20} style={{ color: 'var(--info)', flexShrink: 0, marginTop: '2px' }} />
             <div>
-              <strong style={{ color: '#0C4A6E' }}>Perlu Bantuan dalam Menjawab?</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>
+              <strong style={{ color: '#0c4a6e' }}>Perlu Bantuan dalam Menjawab?</strong>
+              <p style={{ margin: 0 }}>
                 Jika Anda merasa ragu dengan pilihan tertentu, pilihlah opsi yang paling mendekati kondisi saat ini. Anda dapat kembali ke pertanyaan sebelumnya kapan saja menggunakan tombol di atas tanpa kehilangan jawaban yang telah Anda pilih.
               </p>
             </div>
@@ -95,7 +94,7 @@ export default function PanduanPerkara() {
 
           <DisclaimerBanner />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

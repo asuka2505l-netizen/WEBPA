@@ -13,7 +13,7 @@ Situs `pa-bandung.go.id` merupakan portal resmi Pengadilan Agama Bandung Kelas 1
 **Temuan Utama**: Meskipun memuat data hukum dan laporan birokrasi yang sangat lengkap, situs ini didesain dengan pola **portal berita dinas klasik**. Pola ini kurang ramah bagi masyarakat umum pencari keadilan yang awam hukum dan teknologi. Terdapat jurang (*gap*) signifikan antara informasi yang dipublikasikan instansi dengan **kebutuhan praktis warga** yang ingin mengetahui:
 - *"Perkara saya masuk kategori apa?"*
 - *"Berkas apa saja yang wajib saya bawa besok ke loket PTSP Antapani?"*
-- *"Berapa estimasi uang panjar yang harus saya siapkan sesuai kecamatan saya?"*
+- *"Berapa estimasi uang panjar (uang awal perkara (bisa kembali sisa)) yang harus saya siapkan sesuai kecamatan saya?"*
 - *"Bagaimana urutan sidangnya dari awal sampai putusan?"*
 
 ---
@@ -49,7 +49,8 @@ Berikut adalah daftar fitur utama yang saat ini berjalan pada situs eksisting:
   - Banyak masyarakat tidak paham perbedaan mendasar antara **Gugatan Cerai** (inisiatif istri) dan **Cerai Talak** (inisiatif suami).
   - Tidak ada sistem tanya-jawab dinamis yang mengidentifikasi kondisi spesifik (misalnya: apakah alamat pasangan ghoib, apakah buku nikah hilang, atau apakah ada anak di bawah umur). Akibatnya, masyarakat sering salah berkas saat datang ke loket Meja 1 PTSP.
 
-### 3. Fitur Hitung Panjar Terfragmentasi ke Tautan Luar (*TinyURL & Form Terpisah*)
+### 3. Fitur Hitung 
+ Terfragmentasi ke Tautan Luar (*TinyURL & Form Terpisah*)
 - **Deskripsi Masalah**: Pada menu navigasi *PTSP Online $\rightarrow$ Hitung Panjar Biaya Perkara*, pengguna diarahkan ke tautan pihak ketiga *shortlink* (`https://tinyurl.com/y79u8n4f`) atau tabel PDF SK Panjar Biaya Perkara.
 - **Dampak bagi Pengguna**:
   - Pengguna terlempar keluar dari website utama, menimbulkan kecurigaan keamanan (*phishing/broken link*).

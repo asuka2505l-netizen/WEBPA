@@ -290,6 +290,28 @@
   }
 }
 
+/* Tampilan HP kecil: teks tetap besar dan mudah dibaca lansia, tidak dipaksa kecil */
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 3rem 0 2.5rem;
+  }
+  .hero-title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  .hero-title br {
+    display: none; /* Hapus paksaan baris baru supaya teks mengalir natural di layar sempit */
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  /* Tombol CTA diperbolehkan melipat ke 2 baris agar tidak melebihi layar HP */
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 /* ==========================================================================
    3. FEATURE CARDS
    ========================================================================== */
@@ -403,8 +425,8 @@
    4. DECISION TREE / WIZARD STYLES
    ========================================================================== */
 .wizard-container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100%; /* Mengikuti lebar .container agar rata kiri-kanan, bukan center sempit */
+  margin: 0;
 }
 
 .wizard-progress-card {
@@ -473,7 +495,7 @@
 }
 
 .question-title {
-  font-size: 1.65rem;
+  font-size: 1.85rem; /* Diperbesar agar mudah dibaca lansia */
   font-weight: 800;
   color: var(--slate-900);
   margin-bottom: 0.75rem;
@@ -481,7 +503,7 @@
 }
 
 .question-subtitle {
-  font-size: 1rem;
+  font-size: 1.1rem; /* Diperbesar agar mudah dibaca */
   color: var(--slate-600);
   margin-bottom: 2rem;
   line-height: 1.6;
@@ -552,15 +574,15 @@
 }
 
 .option-text-wrap h4 {
-  font-size: 1.05rem;
+  font-size: 1.15rem; /* Diperbesar agar mudah dibaca */
   font-weight: 700;
   color: var(--slate-900);
   margin-bottom: 0.2rem;
 }
 
 .option-text-wrap p {
-  font-size: 0.875rem;
-  color: var(--slate-500);
+  font-size: 1rem; /* Diperbesar dari 0.875rem */
+  color: var(--slate-600); /* Dari slate-500: kontras lebih baik untuk teks kecil */
   margin: 0;
 }
 
@@ -586,7 +608,7 @@
     padding: 1.5rem;
   }
   .question-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
   .option-btn {
     padding: 1rem;

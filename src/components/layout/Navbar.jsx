@@ -29,21 +29,20 @@ export default function Navbar() {
 
   return (
     <header className="navbar-wrapper no-print" style={{ width: '100%', overflowX: 'hidden' }}>
-      
-      {/* Top Notification / Information Bar Berjalan */}
-      {/* Top Notification / Information Bar Berjalan */}
+
       {/* Top Notification / Information Bar Berjalan */}
       <div className="top-bar" style={{ width: '100%', display: 'block', padding: '0' }}>
-        <Marquee speed={50} gradient={false} pauseOnHover={true} style={{ width: '100%' }}>
-          
+        {/* pauseOnHover=false: animasi tetap berjalan saat dihover sesuai permintaan */}
+        <Marquee speed={50} gradient={false} pauseOnHover={false} style={{ width: '100%' }}>
+
           {/* Padding diletakkan di sini agar pita hijaunya tidak menyusut vertikal */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '3rem', marginRight: '3rem', padding: '0.5rem 0' }}>
-            
+
             <span className="top-bar-item" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <MapPin size={13} />
               <span>Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung</span>
             </span>
-            
+
             <span className="top-bar-item" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <Clock size={13} />
               <span>Loket PTSP: Senin - Jumat (08.00 - 15.30 WIB)</span>
@@ -59,7 +58,7 @@ export default function Navbar() {
               <MessageCircle size={13} />
               <span>WA PTSP: 0813-2049-9227</span>
             </a>
-            
+
             <a
               href="https://sipp.pa-bandung.go.id/list_jadwal_sidang"
               target="_blank"
@@ -77,14 +76,14 @@ export default function Navbar() {
 
       {/* Main Navigation Bar */}
       <div style={{ width: '100%', padding: '0 2rem' }}>
-        <nav 
-          className="navbar" 
-          aria-label="Navigasi Utama" 
-          style={{ 
-            width: '100%', 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center' 
+        <nav
+          className="navbar"
+          aria-label="Navigasi Utama"
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
           }}
         >
           {/* Logo & Brand Identity (Otomatis terdorong ke Kiri) */}
@@ -97,7 +96,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation Links (Otomatis terdorong ke Kanan) */}
-          <ul className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', margin: 0 }}>
+          <ul className="nav-links" style={{ alignItems: 'center', gap: '1.5rem', margin: 0 }}>
             <li>
               <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
                 Beranda
@@ -125,29 +124,6 @@ export default function Navbar() {
               <NavLink to="/kalkulator" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
                 <Calculator size={16} />
                 <span>Kalkulator</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/asisten-ai"
-                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-                style={{ color: '#047857', fontWeight: 700 }}
-              >
-                <Bot size={16} />
-                <span>Asisten AI</span>
-                <span
-                  style={{
-                    fontSize: '0.625rem',
-                    backgroundColor: '#10B981',
-                    color: '#FFF',
-                    padding: '0.1rem 0.35rem',
-                    borderRadius: '8px',
-                    marginLeft: '2px',
-                    fontWeight: 800
-                  }}
-                >
-                  AI
-                </span>
               </NavLink>
             </li>
             <li>
