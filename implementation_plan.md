@@ -101,9 +101,9 @@ webPAB/
 - **Navigasi Fleksibel**:
   - Tombol **Kembali** memundurkan step ke simpul sebelumnya menggunakan tumpukan riwayat (*history stack*) tanpa menghapus pilihan yang sudah dipilih.
   - Tombol **Mulai Ulang** mereset panduan ke awal dengan konfirmasi halus.
-  - Tombol **Lanjutkan ke Hasil** mengarah ke `/hasil-panduan` membawa ringkasan status kelengkapan.
+  - Tombol **Lanjutkan ke Hasil** mengarah ke `/hasil` membawa ringkasan status kelengkapan.
 
-### B. Halaman Hasil Akhir Panduan (`/hasil-panduan`)
+### B. Halaman Hasil Akhir Panduan (`/hasil`)
 - Menampilkan:
   1. Identifikasi Jenis Perkara (contoh: **Gugatan Cerai** atau **Cerai Talak**).
   2. Status Kesiapan Dokumen Awal.

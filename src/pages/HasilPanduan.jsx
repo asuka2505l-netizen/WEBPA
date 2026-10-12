@@ -26,11 +26,11 @@ export default function HasilPanduan() {
     PERKARA_LIST.find((c) => c.id === activeCaseType) || PERKARA_LIST[0];
 
   // Evaluate preparation status based on answers
-  const isBukuNikahMissing = answers.perceraian_buku_nikah === "buku_hilang";
-  const isAlamatGhoib = answers.perceraian_alamat === "alamat_ghoib";
-  const isSaksiBelum = answers.perceraian_saksi === "saksi_belum";
-  const isSuratKuaBelum = answers.dispensasi_surat_kua === "kua_belum";
-  const isAktaKematianBelum = answers.waris_surat_kematian === "akta_kematian_belum";
+  const isBukuNikahMissing = answers.perceraian_buku_nikah === 'buku_hilang';
+  const isAlamatGhoib = answers.perceraian_alamat === 'alamat_ghoib';
+  const isSaksiBelum = answers.perceraian_saksi === 'saksi_belum';
+  const isSuratKuaBelum = answers.dispensasi_surat_kua === 'kua_belum';
+  const isAktaKematianBelum = answers.waris_surat_kematian === 'akta_kematian_belum';
 
   const hasMissingPrerequisites =
     isBukuNikahMissing ||
@@ -72,10 +72,10 @@ export default function HasilPanduan() {
     if (!hasMissingPrerequisites) {
       text += `- ✅ Dokumen utama siap diperiksa di meja PTSP.\n`;
     }
-    text += `\n📍 *Lokasi PTSP Pengadilan Agama Bandung:*
-Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
-📞 WhatsApp PTSP: 0813-2049-9227
-🌐 Jadwal Sidang: https://sipp.pa-bandung.go.id`;
+    text += `\n📍 *Lokasi PTSP Pengadilan Agama Bandung:*\n` +
+      `Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)\n` +
+      `📞 WhatsApp PTSP: 0813-2049-9227\n` +
+      `🌐 Jadwal Sidang: https://sipp.pa-bandung.go.id`;
 
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
@@ -108,7 +108,16 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
           {/* Main Result Card */}
           <div className="card" style={{ padding: '2.5rem', marginBottom: '2rem' }}>
             {/* Classification Header */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid #E2E8F0' }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+              flexWrap: 'wrap',
+              gap: '1rem',
+              marginBottom: '1.5rem',
+              paddingBottom: '1.5rem',
+              borderBottom: '1px solid #E2E8F0'
+            }}>
               <div>
                 <span className="badge badge-primary" style={{ marginBottom: '0.5rem' }}>
                   {caseInfo.type}
@@ -160,7 +169,9 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
                       <div>
                         <strong>Buku Nikah Asli Tidak Ada / Hilang:</strong>
                         <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem' }}>
-                          Sebelum mendaftarkan perkara ke Pengadilan Agama Bandung, Anda wajib mengurus <strong>Duplikat Kutipan Akta Nikah</strong> terlebih dahulu di KUA tempat pernikahan Anda dicatatkan dengan membawa surat keterangan hilang dari Kepolisian.
+                          Sebelum mendaftarkan perkara ke Pengadilan Agama Bandung, Anda wajib mengurus{' '}
+                          <strong>Duplikat Kutipan Akta Nikah</strong> terlebih dahulu di KUA tempat pernikahan Anda
+                          dicatatkan dengan membawa surat keterangan hilang dari Kepolisian.
                         </p>
                       </div>
                     </div>
@@ -172,7 +183,10 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
                       <div>
                         <strong>Alamat Pasangan Tidak Diketahui (Ghoib):</strong>
                         <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem' }}>
-                          Perkara Anda dikategorikan sebagai <em>Cerai Ghoib</em>. Anda wajib melampirkan <strong>Surat Keterangan Ghoib</strong> dari kantor Kelurahan tempat tinggal Anda di Kota Bandung yang menyatakan bahwa pasangan telah pergi dan tidak diketahui lagi alamatnya. Pemanggilan sidang akan dilakukan melalui siaran radio atau papan pengumuman resmi PA Bandung.
+                          Perkara Anda dikategorikan sebagai <em>Cerai Ghoib</em>. Anda wajib melampirkan{' '}
+                          <strong>Surat Keterangan Ghoib</strong> dari kantor Kelurahan tempat tinggal Anda di Kota Bandung
+                          yang menyatakan bahwa pasangan telah pergi dan tidak diketahui lagi alamatnya.
+                          Pemanggilan sidang akan dilakukan melalui siaran radio atau papan pengumuman resmi PA Bandung.
                         </p>
                       </div>
                     </div>
@@ -184,7 +198,9 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
                       <div>
                         <strong>Kesiapan Saksi Sidang:</strong>
                         <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem' }}>
-                          Dalam hukum acara peradilan agama, keterangan minimal <strong>2 (dua) orang saksi</strong> dari pihak keluarga atau orang terdekat yang sudah dewasa (bukan anak di bawah umur) mutlak diperlukan pada tahap pembuktian.
+                          Dalam hukum acara peradilan agama, keterangan minimal{' '}
+                          <strong>2 (dua) orang saksi</strong> dari pihak keluarga atau orang terdekat yang sudah dewasa
+                          (bukan anak di bawah umur) mutlak diperlukan pada tahap pembuktian.
                         </p>
                       </div>
                     </div>
@@ -194,9 +210,10 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
                     <div className="alert-box alert-warning">
                       <AlertTriangle size={20} style={{ color: '#D97706', flexShrink: 0 }} />
                       <div>
-                        <strong>Surat Penolakan Nikah dari KUA (Model N5/N6):</strong>
+                        <strong>Surat Penolakan Pernikahan dari KUA (Model N8):</strong>
                         <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem' }}>
-                          Surat penolakan pendaftaran nikah dari Kepala KUA merupakan syarat mutlak dasar permohonan Dispensasi Kawin sesuai PERMA No. 5 Tahun 2019.
+                          Surat penolakan pendaftaran nikah dari Kepala KUA merupakan syarat mutlak dasar permohonan
+                          Dispensasi Kawin sesuai PERMA No. 5 Tahun 2019.
                         </p>
                       </div>
                     </div>
@@ -208,7 +225,8 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
                       <div>
                         <strong>Akta Kematian Pewaris:</strong>
                         <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem' }}>
-                          Surat Keterangan / Akta Kematian dari Disdukcapil atau Kelurahan setempat adalah bukti utama terbukanya hak waris.
+                          Surat Keterangan / Akta Kematian dari Disdukcapil atau Kelurahan setempat adalah bukti utama
+                          terbukanya hak waris.
                         </p>
                       </div>
                     </div>
@@ -220,7 +238,8 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
                   <div>
                     <strong>Dokumen Utama Terlihat Lengkap:</strong>
                     <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem' }}>
-                      Berdasarkan jawaban Anda, tidak terdapat kendala prasyarat dokumen kritis. Anda dapat melanjutkan ke pengecekan checklist detail dan perhitungan panjar biaya.
+                      Berdasarkan jawaban Anda, tidak terdapat kendala prasyarat dokumen kritis. Anda dapat
+                      melanjutkan ke pengecekan checklist detail dan perhitungan panjar biaya.
                     </p>
                   </div>
                 </div>
@@ -234,61 +253,65 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
               </h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#F8FAFC', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#065F46', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.85rem', flexShrink: 0 }}>
-                    1
+                {[
+                  {
+                    step: 1,
+                    title: 'Periksa dan Centang Persyaratan Dokumen',
+                    desc: 'Buka halaman checklist untuk memeriksa berkas asli, jumlah fotokopi, dan cap leges pos (nazegelen). Anda juga dapat mencetaknya langsung.'
+                  },
+                  {
+                    step: 2,
+                    title: 'Hitung Estimasi Panjar Biaya Perkara',
+                    desc: 'Gunakan fitur kalkulator dengan mengetik kelurahan tempat tinggal Anda di Kota Bandung (Radius I, II, atau III).'
+                  },
+                  {
+                    step: 3,
+                    title: 'Pelajari 8 Tahapan Alur Persidangan',
+                    desc: 'Pahami proses mulai dari pendaftaran, mediasi wajib, agenda pembuktian saksi, hingga penerbitan produk pengadilan (Akta Cerai / Putusan).'
+                  },
+                  {
+                    step: 4,
+                    title: 'Kunjungi Loket Meja 1 PTSP Pengadilan Agama Bandung',
+                    desc: 'Bawa seluruh berkas lengkap ke loket Meja 1 PTSP Jl. Terusan Jakarta No. 120 Antapani (Senin - Jumat 08.00 - 15.30 WIB).'
+                  }
+                ].map((item) => (
+                  <div
+                    key={item.step}
+                    style={{
+                      display: 'flex',
+                      gap: '1rem',
+                      alignItems: 'flex-start',
+                      padding: '1rem',
+                      backgroundColor: '#F8FAFC',
+                      borderRadius: '10px',
+                      border: '1px solid #E2E8F0'
+                    }}
+                  >
+                    <div style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '50%',
+                      backgroundColor: '#065F46',
+                      color: '#FFFFFF',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontWeight: 800,
+                      fontSize: '0.85rem',
+                      flexShrink: 0
+                    }}>
+                      {item.step}
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '0.95rem', color: '#0F172A', marginBottom: '0.2rem' }}>
+                        {item.title}
+                      </h4>
+                      <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748B' }}>
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', marginBottom: '0.2rem' }}>
-                      Periksa dan Centang Persyaratan Dokumen
-                    </h4>
-                    <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748B' }}>
-                      Buka halaman checklist untuk memeriksa berkas asli, jumlah fotokopi, dan cap leges pos (nazegelen). Anda juga dapat mencetaknya langsung.
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#F8FAFC', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#065F46', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.85rem', flexShrink: 0 }}>
-                    2
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', marginBottom: '0.2rem' }}>
-                      Hitung Estimasi Panjar Biaya Perkara
-                    </h4>
-                    <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748B' }}>
-                      Gunakan fitur kalkulator dengan mengetik kelurahan tempat tinggal Anda di Kota Bandung (Radius I, II, atau III).
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#F8FAFC', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#065F46', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.85rem', flexShrink: 0 }}>
-                    3
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', marginBottom: '0.2rem' }}>
-                      Pelajari 8 Tahapan Alur Persidangan
-                    </h4>
-                    <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748B' }}>
-                      Pahami proses mulai dari pendaftaran, mediasi wajib, agenda pembuktian saksi, hingga penerbitan produk pengadilan (Akta Cerai / Putusan).
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#F8FAFC', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#065F46', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.85rem', flexShrink: 0 }}>
-                    4
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', marginBottom: '0.2rem' }}>
-                      Kunjungi Loket Meja 1 PTSP Pengadilan Agama Bandung
-                    </h4>
-                    <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748B' }}>
-                      Bawa seluruh berkas lengkap ke loket Meja 1 PTSP Jl. Terusan Jakarta No. 120 Antapani (Senin - Jumat 08.00 - 15.30 WIB).
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -298,7 +321,13 @@ Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (40291)
             </div>
 
             {/* Quick Action Buttons (Hidden on Print) */}
-            <div className="no-print" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', paddingTop: '1.5rem', borderTop: '1px solid #E2E8F0' }}>
+            <div className="no-print" style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1rem',
+              paddingTop: '1.5rem',
+              borderTop: '1px solid #E2E8F0'
+            }}>
               <Link to="/checklist" className="btn btn-primary">
                 <CheckSquare size={16} />
                 <span>Lihat Checklist Dokumen</span>

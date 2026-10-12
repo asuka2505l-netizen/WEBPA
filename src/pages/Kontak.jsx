@@ -167,27 +167,24 @@ export default function Kontak() {
                 </a>
               </div>
 
-              {/* Map visual card mockup */}
-              <div
+              {/* Peta Lokasi Resmi (Google Maps Embed) */}
+              <iframe
+                title="Peta Lokasi Pengadilan Agama Bandung Kelas 1A"
+                src="https://maps.google.com/maps?q=Pengadilan+Agama+Bandung+Jl+Terusan+Jakarta+No+120&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 style={{
-                  height: '180px',
-                  backgroundColor: '#ECFDF5',
-                  borderRadius: '10px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#065F46',
+                  width: '100%',
+                  height: '280px',
                   border: '1px solid #A7F3D0',
-                  textAlign: 'center',
-                  padding: '1rem'
+                  borderRadius: '10px',
+                  display: 'block'
                 }}
-              >
-                <MapPin size={36} style={{ color: '#DC2626', marginBottom: '0.5rem' }} />
-                <strong style={{ color: '#0F172A', fontSize: '0.95rem' }}>Gedung Pengadilan Agama Bandung Kelas 1A</strong>
-                <span style={{ fontSize: '0.8rem', color: '#475569' }}>
-                  Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (Sebelah Timur flyover Pelangi Antapani)
-                </span>
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: '#475569', textAlign: 'center' }}>
+                <MapPin size={12} style={{ display: 'inline', verticalAlign: '-2px', marginRight: '4px', color: '#DC2626' }} />
+                Gedung Pengadilan Agama Bandung Kelas 1A — Jl. Terusan Jakarta No. 120, Antapani, Kota Bandung (Sebelah Timur flyover Pelangi Antapani)
               </div>
             </div>
           </div>

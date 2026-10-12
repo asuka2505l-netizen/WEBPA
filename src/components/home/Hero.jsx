@@ -17,55 +17,21 @@ import {
 
 export default function Hero() {
   return (
-    <section 
-      className="hero-section" 
-      style={{ 
-        position: 'relative', 
-        overflow: 'hidden', 
-        minHeight: '100vh', 
+    <section
+      className="hero-section"
+      style={{
+        position: 'relative',
+        overflow: 'hidden',
         padding: '4rem 0',
         display: 'flex',
         alignItems: 'center', /* Memastikan konten berada pas di tengah layar secara vertikal */
-        backgroundColor: '#F8FAFC' 
+        backgroundColor: '#F8FAFC'
       }}
     >
-      
-      {/* 1. LAYER VIDEO BACKGROUND (Z-Index: 0) */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: 0 
-        }}
-      >
-        <source src="/sample.mp4" type="video/mp4" />
-      </video>
 
-      {/* 2. LAYER OVERLAY TRANSPARAN DENGAN EFEK BLUR (Z-Index: 1) */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(255, 255, 255, 0.88)', /* Putih transparan 88% agar tulisan sangat jelas */
-          backdropFilter: 'blur(6px)', /* Efek modern: mem-blur video di belakangnya sedikit */
-          zIndex: 1
-        }}
-      />
+      {/* KONTEN UTAMA HERO */}
+      <div style={{ position: 'relative', width: '100%', padding: '0 2rem', maxWidth: '1440px', margin: '0 auto' }}>
 
-      {/* 3. KONTEN UTAMA HERO (Z-Index: 2) */}
-      <div style={{ position: 'relative', zIndex: 2, width: '100%', padding: '0 2rem', maxWidth: '1440px', margin: '0 auto' }}>
-        
         {/* Anti-Calo Official Announcement Ticker */}
         <div
           style={{
@@ -89,8 +55,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' }}>
-          
+        <div className="hero-grid" style={{ alignItems: 'center' }}>
+
           {/* Kolom Kiri: Headline & Action */}
           <div className="hero-content">
             <div className="hero-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', backgroundColor: '#F1F5F9', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 600, color: '#475569', marginBottom: '1.5rem' }}>
@@ -99,14 +65,14 @@ export default function Hero() {
             </div>
 
             {/* Bagian Judul: Solid, Kontras Tinggi, Tanpa Gradasi */}
-            <h1 className="hero-title" style={{ fontSize: '3.2rem', fontWeight: 800, lineHeight: 1.2, color: '#0F172A', marginBottom: '1.25rem', fontFamily: 'system-ui, sans-serif' }}>
+            <h1 className="hero-title" style={{ fontWeight: 800, color: '#0F172A', fontFamily: 'system-ui, sans-serif' }}>
               Panduan Perkara Pengadilan Agama, <br />
-              <span style={{ color: '#065F46' }}> {/* Menggunakan Hijau Botol Solid agar sangat jelas terbaca */}
+              <span style={{ color: '#065F46' }}>
                 Lebih Mudah Dipahami
               </span>
             </h1>
 
-            <p className="hero-subtitle" style={{ fontSize: '1.1rem', lineHeight: 1.6, color: '#475569', marginBottom: '2.5rem', maxWidth: '90%' }}>
+            <p className="hero-subtitle" style={{ lineHeight: 1.6, color: '#475569', marginBottom: '2.5rem', maxWidth: '90%' }}>
               Portal panduan interaktif resmi bagi warga Kota Bandung untuk memahami alur perkara perceraian, dispensasi kawin, kewarisan, persyaratan berkas, dan estimasi panjar biaya berdasarkan zonasi radius kecamatan.
             </p>
 
@@ -152,7 +118,7 @@ export default function Hero() {
           </div>
 
           {/* Kolom Kanan: Interactive Card Preview */}
-          <div className="hero-card-visual" style={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', padding: '2rem', borderRadius: '16px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01)', border: '1px solid #F1F5F9' }}>
+          <div className="hero-card-visual">
             <div className="hero-card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
               <div>
                 <span style={{ backgroundColor: '#DBEAFE', color: '#1D4ED8', padding: '0.25rem 0.75rem', borderRadius: '50px', fontSize: '0.75rem', fontWeight: 700 }}>Sistem Pemandu Warga</span>
@@ -163,7 +129,7 @@ export default function Hero() {
 
             {/* Simulated interactive steps */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              
+
               <div style={{ display: 'flex', gap: '1rem', padding: '1rem', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '8px' }}>
                 <div style={{ color: '#059669', marginTop: '0.1rem' }}><Compass size={20} /></div>
                 <div>
